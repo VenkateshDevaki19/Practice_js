@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Request Example</title>
+</head>
+
+<body>
+    <h2>Delete Request Example</h2>
+
+    <button onclick="deletePost()">Delete</button>
+
+    <script>
+        function deletePost() {
+            fetch('https://jsonplaceholder.typicode.com/posts/1', {
+                method: 'DELETE'
+            }).then(res => {
+                if (res.ok) {
+                    alert("post deleted successfully");
+                }
+            }).catch(error => {
+                console.log("Error: ", error);
+            });
+        }
+    </script>
+</body>
+
+</html>

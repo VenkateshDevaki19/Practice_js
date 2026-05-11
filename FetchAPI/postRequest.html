@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Request Example</title>
+</head>
+
+<body>
+
+    <h2>Post Request Example</h2>
+
+    <button onclick="createPost()">Create</button>
+
+    <div id="result"></div>
+
+    <script>
+        function createPost() {
+
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    title: "javascript post example",
+                    body: "this is a post request example using fetch api",
+                    userId: 1
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    alert("post created successfully");
+                }).catch(error => {
+                    console.log("Error: ", error);
+                });
+        }
+    </script>
+
+</body>
+
+</html>

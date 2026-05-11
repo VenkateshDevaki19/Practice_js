@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch GET Example</title>
+</head>
+
+<body>
+
+    <h2>User Data</h2>
+    <button onclick="getUser()">Get User</button>
+
+    <div id="result"></div>
+
+    <script>
+
+        function getUser() {
+            const url = 'https://jsonplaceholder.typicode.com/users/1';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = `
+                <h3>${data.name}</h3>
+                <p> Email: - ${data.email} </p>
+                <p> city: - ${data.address.city} </p>
+                `;
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                });
+        }
+    </script>
+
+</body>
+</html>
